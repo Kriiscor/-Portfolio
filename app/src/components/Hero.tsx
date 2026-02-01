@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-[#00f0ff] to-[#7000ff] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[#1a1a1a] bg-black overflow-hidden relative z-10 ring-4 ring-black">
               <img
-                src="./PPcoco.png"
+                src="/PPcoco.png"
                 alt="Corentin Dubail"
                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
               />
@@ -41,7 +41,9 @@ const Hero: React.FC = () => {
             Je transforme des données complexes en interfaces web{" "}
             <span className="text-white font-medium">intuitives</span> et{" "}
             <span className="text-white font-medium">performantes</span>.
-            Expertise en React, TypeScript et C# avec une vision data-driven. J`apprends à maîtriser les nouvelles technologies IA pour des solutions innovantes.
+            Expertise en React, TypeScript et C# avec une vision data-driven.
+            J`apprends à maîtriser les nouvelles technologies IA pour des
+            solutions innovantes.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
