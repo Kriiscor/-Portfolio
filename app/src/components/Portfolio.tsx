@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { projects } from "../data/projects";
-import { Category } from "../data/types";
+import { Category, Project } from "../data/types";
 import {
   Card,
   CardContent,
@@ -12,9 +12,11 @@ import {
 import { Badge } from "./ui/Badge";
 import { Button } from "./ui/Button";
 import { ExternalLink, Github, Layers } from "lucide-react";
+import PortfolioModale from "./ui/PorfolioModale";
 
 const Portfolio: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category>("Tous");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories: Category[] = [
     "Tous",
@@ -66,7 +68,8 @@ const Portfolio: React.FC = () => {
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="flex flex-col h-full overflow-hidden group border-zinc-800 bg-zinc-900/30"
+              className="flex flex-col h-full overflow-hidden group border-zinc-800 bg-zinc-900/30 cursor-pointer hover:border-[#00f0ff]/50 transition-colors"
+              onClick={() => setSelectedProject(project)}
             >
               <div className="h-48 overflow-hidden relative bg-zinc-950">
                 <div className="absolute inset-0 bg-[#00f0ff]/10 group-hover:bg-transparent transition-colors z-10" />
@@ -120,6 +123,7 @@ const Portfolio: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Button
                       variant="outline"
@@ -136,6 +140,7 @@ const Portfolio: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Button
                       variant="outline"
@@ -169,6 +174,12 @@ const Portfolio: React.FC = () => {
           </div>
         )}
       </div>
+
+      <PortfolioModale
+        project={selectedProject}
+        isOpen={selectedProject !== null}
+        onClose={() => setSelectedProject(null)}
+      />
     </section>
   );
 };
