@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
                   </a>
                 </div>
               </div>
-
+{/* 
               <div className="flex items-start space-x-4 group">
                 <div className="p-3 bg-zinc-900 border border-zinc-800 text-[#7000ff] rounded-lg group-hover:border-[#7000ff] transition-colors shadow-lg">
                   <Phone className="h-6 w-6" />
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
                   </h3>
                   <p className="text-zinc-400">06 77 60 13 19</p>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-start space-x-4 group">
                 <div className="p-3 bg-zinc-900 border border-zinc-800 text-pink-500 rounded-lg group-hover:border-pink-500 transition-colors shadow-lg">
