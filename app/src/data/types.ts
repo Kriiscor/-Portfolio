@@ -14,6 +14,7 @@ export interface Project {
   technologies: string[];
   lienDemo?: string;
   lienGithub?: string;
+  features?: string[];
 }
 
 export interface NavItem {
