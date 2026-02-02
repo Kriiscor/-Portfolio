@@ -1,9 +1,11 @@
-import React from "react";
-import { Mail, Phone, MapPin, Send, MessageSquare } from "lucide-react";
-import { Button } from "./ui/Button";
-import { Card, CardContent } from "./ui/Card";
+import React from 'react';
+import { Send, MessageSquare } from 'lucide-react';
+import { Button } from './ui/Button';
+import { Card, CardContent } from './ui/Card';
 
 const Contact: React.FC = () => {
+  // NOTE: Ce formulaire est actuellement en mode simulation.
+  // Pour recevoir les emails, remplacez onSubmit par action="https://formspree.io/f/VOTRE_ID" et method="POST"
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Simulation d'envoi pour la démo
@@ -16,59 +18,74 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="text-center mb-12">
+          <div className="inline-block px-3 py-1 border border-white/20 bg-white/5 text-white rounded font-mono text-sm mb-4">
+            03. Contact
+          </div>
+          <h2 className="text-3xl font-bold text-white mb-4 font-mono">Transmission de <span className="text-[#00f0ff]">Données</span></h2>
+          <p className="text-zinc-400 text-base max-w-xl mx-auto font-mono">
+            // Initialisation du protocole de communication. <br/>
+            Remplissez les champs ci-dessous pour établir la connexion.
+          </p>
+        </div>
+
+        {/* Form Section */}
         <div className="relative group">
-            {/* Decorative glow effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00f0ff] to-[#7000ff] rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#00f0ff] to-[#7000ff] rounded-xl blur opacity-10 group-hover:opacity-30 transition duration-1000"></div>
             
-            <Card className="relative shadow-2xl border-white/10 bg-zinc-900/90 backdrop-blur-xl">
-              <CardContent className="p-6 md:p-10">
-                <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-6">
-                  <div className="p-2 bg-[#00f0ff]/10 rounded border border-[#00f0ff]/30">
-                    <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
-                  </div>
-                  <span className="font-mono text-sm uppercase tracking-widest text-zinc-400">Terminal de communication</span>
+            <Card className="relative border-white/5 bg-zinc-900/80 backdrop-blur-xl">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-3 mb-8 border-b border-dashed border-white/10 pb-4">
+                  <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
+                  <span className="font-mono text-xs uppercase tracking-widest text-zinc-500">Secure Channel</span>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label htmlFor="name" className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Identifiant / Nom</label>
+                  <div className="grid grid-cols-1 gap-6">
+                    <div className="group relative">
+                        <label htmlFor="name" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-[#00f0ff] transition-colors">Identifiant</label>
                         <input
-                        type="text"
-                        id="name"
-                        required
-                        className="flex h-12 w-full rounded bg-black/60 border border-zinc-800 px-4 py-2 text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-[#00f0ff] focus:ring-1 focus:ring-[#00f0ff] transition-all hover:border-zinc-700"
-                        placeholder="John Doe"
+                          type="text"
+                          id="name"
+                          name="name"
+                          required
+                          className="w-full bg-zinc-950/50 border-b border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00f0ff] focus:bg-zinc-900/50 transition-all placeholder:text-zinc-800"
+                          placeholder="Ex: Neo Anderson"
                         />
                     </div>
                     
-                    <div className="space-y-2">
-                        <label htmlFor="email" className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Email / Contact</label>
+                    <div className="group relative">
+                        <label htmlFor="email" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-[#00f0ff] transition-colors">Email</label>
                         <input
-                        type="email"
-                        id="email"
-                        required
-                        className="flex h-12 w-full rounded bg-black/60 border border-zinc-800 px-4 py-2 text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-[#00f0ff] focus:ring-1 focus:ring-[#00f0ff] transition-all hover:border-zinc-700"
-                        placeholder="john@example.com"
+                          type="email"
+                          id="email"
+                          name="email"
+                          required
+                          className="w-full bg-zinc-950/50 border-b border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00f0ff] focus:bg-zinc-900/50 transition-all placeholder:text-zinc-800"
+                          placeholder="Ex: neo@matrix.com"
                         />
+                    </div>
+                  
+                    <div className="group relative">
+                      <label htmlFor="message" className="block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2 group-focus-within:text-[#00f0ff] transition-colors">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows={5}
+                        className="w-full bg-zinc-950/50 border-b border-zinc-800 px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00f0ff] focus:bg-zinc-900/50 transition-all resize-none placeholder:text-zinc-800"
+                        placeholder="Saisissez votre message ici..."
+                      />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Données / Message</label>
-                    <textarea
-                      id="message"
-                      required
-                      rows={6}
-                      className="flex w-full rounded bg-black/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-[#00f0ff] focus:ring-1 focus:ring-[#00f0ff] transition-all hover:border-zinc-700 resize-none"
-                      placeholder="Initialisation du protocole d'échange..."
-                    />
+                  <div className="pt-4">
+                    <Button type="submit" variant="default" className="w-full md:w-auto gap-2 font-mono uppercase tracking-widest text-xs h-12 px-8">
+                      Initialiser l'envoi <Send className="h-3 w-3" />
+                    </Button>
                   </div>
-
-                  <Button type="submit" variant="default" className="w-full gap-2 font-bold tracking-widest h-12 md:h-14 text-sm md:text-base">
-                    Envoyer un message <Send className="h-4 w-4" />
-                  </Button>
                 </form>
               </CardContent>
             </Card>
