@@ -12,63 +12,61 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-          {/* Info Section */}
-          <div className="space-y-8">
-            <div>
-              <div className="inline-block px-3 py-1 border border-white/20 bg-white/5 text-white rounded font-mono text-sm mb-2">
-                03. Contact
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-4 font-mono">
-                Initialiser <span className="text-[#00f0ff]">Connection</span>
-              </h2>
-              <p className="text-zinc-400 text-lg">
-                Un projet en tête ? Besoin d une expertise Data ou FullStack ?
-                Je suis disponible pour échanger.
-              </p>
-            </div>
+        <div className="relative group">
+            {/* Decorative glow effect */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00f0ff] to-[#7000ff] rounded-xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+            
+            <Card className="relative shadow-2xl border-white/10 bg-zinc-900/90 backdrop-blur-xl">
+              <CardContent className="p-6 md:p-10">
+                <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-6">
+                  <div className="p-2 bg-[#00f0ff]/10 rounded border border-[#00f0ff]/30">
+                    <MessageSquare className="w-5 h-5 text-[#00f0ff]" />
+                  </div>
+                  <span className="font-mono text-sm uppercase tracking-widest text-zinc-400">Terminal de communication</span>
+                </div>
 
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4 group">
-                <div className="p-3 bg-zinc-900 border border-zinc-800 text-[#00f0ff] rounded-lg group-hover:border-[#00f0ff] transition-colors shadow-lg">
-                  <Mail className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white font-mono">Email</h3>
-                  <a
-                    href="mailto:Corentindubail@gmail.com"
-                    className="text-zinc-400 hover:text-[#00f0ff] transition-colors"
-                  >
-                    Corentindubail@gmail.com
-                  </a>
-                </div>
-              </div>
-{/* 
-              <div className="flex items-start space-x-4 group">
-                <div className="p-3 bg-zinc-900 border border-zinc-800 text-[#7000ff] rounded-lg group-hover:border-[#7000ff] transition-colors shadow-lg">
-                  <Phone className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white font-mono">
-                    Téléphone
-                  </h3>
-                  <p className="text-zinc-400">06 77 60 13 19</p>
-                </div>
-              </div> */}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                        <label htmlFor="name" className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Identifiant / Nom</label>
+                        <input
+                        type="text"
+                        id="name"
+                        required
+                        className="flex h-12 w-full rounded bg-black/60 border border-zinc-800 px-4 py-2 text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-[#00f0ff] focus:ring-1 focus:ring-[#00f0ff] transition-all hover:border-zinc-700"
+                        placeholder="John Doe"
+                        />
+                    </div>
+                    
+                    <div className="space-y-2">
+                        <label htmlFor="email" className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Email / Contact</label>
+                        <input
+                        type="email"
+                        id="email"
+                        required
+                        className="flex h-12 w-full rounded bg-black/60 border border-zinc-800 px-4 py-2 text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-[#00f0ff] focus:ring-1 focus:ring-[#00f0ff] transition-all hover:border-zinc-700"
+                        placeholder="john@example.com"
+                        />
+                    </div>
+                  </div>
 
-              <div className="flex items-start space-x-4 group">
-                <div className="p-3 bg-zinc-900 border border-zinc-800 text-pink-500 rounded-lg group-hover:border-pink-500 transition-colors shadow-lg">
-                  <MapPin className="h-6 w-6" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-white font-mono">
-                    Localisation
-                  </h3>
-                  <p className="text-zinc-400">Guyancourt (78280)</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-xs font-mono text-[#00f0ff] uppercase tracking-wider">Données / Message</label>
+                    <textarea
+                      id="message"
+                      required
+                      rows={6}
+                      className="flex w-full rounded bg-black/60 border border-zinc-800 px-4 py-3 text-sm text-white placeholder:text-zinc-700 focus:outline-none focus:border-[#00f0ff] focus:ring-1 focus:ring-[#00f0ff] transition-all hover:border-zinc-700 resize-none"
+                      placeholder="Initialisation du protocole d'échange..."
+                    />
+                  </div>
+
+                  <Button type="submit" variant="default" className="w-full gap-2 font-bold tracking-widest h-12 md:h-14 text-sm md:text-base">
+                    Envoyer un message <Send className="h-4 w-4" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
         </div>
       </div>
     </section>
