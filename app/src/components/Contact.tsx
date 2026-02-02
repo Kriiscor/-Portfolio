@@ -6,7 +6,12 @@ import { Card, CardContent } from "./ui/Card";
 const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Message transmis au mainframe ! (Simulation)");
+    // Simulation d'envoi pour la démo
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    console.log("Données saisies:", Object.fromEntries(formData));
+    alert("Message simulé ! Pour le recevoir réellement, il faut connecter un service backend (voir explications).");
+    form.reset();
   };
 
   return (
