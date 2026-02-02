@@ -35,7 +35,7 @@ const PortfolioModale: React.FC<PortfolioModaleProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-10 flex items-center justify-center p-4"
       onClick={onClose}
     >
       {/* Overlay */}
@@ -49,7 +49,7 @@ const PortfolioModale: React.FC<PortfolioModaleProps> = ({
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/50 backdrop-blur text-zinc-400 hover:text-white hover:bg-black/70 transition-colors"
+          className="absolute top-4 right-4 z-15 p-2 rounded-full bg-black/50 backdrop-blur text-zinc-400 hover:text-white hover:bg-black/70 transition-colors"
         >
           <X className="h-5 w-5" />
         </button>

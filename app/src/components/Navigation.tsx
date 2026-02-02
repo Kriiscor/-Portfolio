@@ -25,7 +25,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
+      className={`fixed top-0 w-full z-12 transition-all duration-300 border-b ${
         isScrolled
           ? "bg-[#050505]/80 backdrop-blur-xl border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
           : "bg-transparent border-transparent"
